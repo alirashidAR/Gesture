@@ -4,7 +4,7 @@ import time
 import pydirectinput
 import pyautogui
 
-# Initialize PyAutoGUI
+
 pyautogui.FAILSAFE = False
 
 capture = cv2.VideoCapture(0)
@@ -31,7 +31,7 @@ while True:
             hand_center_x = int(hand_landmarks.landmark[mp_hands.HandLandmark.WRIST].x * frame.shape[1])
             hand_center_y = int(hand_landmarks.landmark[mp_hands.HandLandmark.WRIST].y * frame.shape[0])
 
-            # Move the cursor based on hand position
+            
             pyautogui.moveTo(hand_center_x, hand_center_y)
 
             thumb_tip = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP]
@@ -59,7 +59,7 @@ while True:
                 is_hand_closed = True
 
             if is_hand_closed:
-                pyautogui.rightClick()  # Perform a right-click
+                pyautogui.rightClick()  
 
     cv2.imshow('Game', frame)
 
